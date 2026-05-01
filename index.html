@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Danna Prette · Mis XV</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- APERTURA (Toca cualquier parte para abrir) -->
+    <div id="contenedor-principal" onclick="activarInvitacion()">
+        <video id="videoSobre" playsinline muted preload="auto">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div id="capa-boton">
+            <div class="boton-neon-inicio">TOCA PARA ABRIR</div>
+        </div>
+    </div>
+
+    <div id="seccion-final" class="oculto">
+        
+        <section class="video-deco-container">
+            <video id="videoDeco" playsinline muted loop autoplay>
+                <source src="video_deco.mp4" type="video/mp4">
+            </video>
+            <div class="scroll-indicator-wrap">
+                <span class="desliza-tag">DESLIZA</span>
+                <div class="arrow-neon"></div>
+            </div>
+        </section>
+
+        <section class="section-pad">
+            <p class="frase-emotiva">Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más quiero los hace inolvidables.</p>
+            <div class="spacer-v"></div>
+            <h2 class="bellaboo text-fuchsia-neon">Te espero para celebrar mis 15 años</h2>
+        </section>
+
+        <section class="section-pad relative">
+            <h2 class="bellaboo text-cyan-neon">Save the date</h2>
+            <div class="save-the-date-card">
+                <div id="fireworks-container"></div> 
+                <div class="flex-row">
+                    <div class="scratch-wrap">
+                        <canvas id="c1" width="95" height="95"></canvas>
+                        <div class="inner-label">13</div>
+                    </div>
+                    <div class="scratch-wrap">
+                        <canvas id="c2" width="95" height="95"></canvas>
+                        <div class="inner-label">JUNIO</div>
+                    </div>
+                    <div class="scratch-wrap">
+                        <canvas id="c3" width="95" height="95"></canvas>
+                        <div class="inner-label">2026</div>
+                    </div>
+                </div>
+            </div>
+            <!-- BOTONES RECTANGULARES STD -->
+            <div class="botones-std">
+                <a href="https://drive.google.com/file/d/1zFx6J6QZdPNjwB9XtpDbCuxBxV37fkhF/view?usp=sharing" class="btn-std-rect fuchsia">DESCARGA EL SAVE THE DATE</a>
+            </div>
+        </section>
+
+        <section class="section-pad">
+            <h2 class="bellaboo text-white-neon">Cronograma</h2>
+            <div class="card-crono border-fuchsia">
+                <h3 class="text-fuchsia">Ceremonia Religiosa</h3>
+                <p>9 de Junio · 19:00 hs</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+San+Roque" target="_blank" class="btn-mapa-rect border-fuchsia">VER UBICACIÓN</a>
+            </div>
+            <div class="spacer-mini"></div>
+            <div class="card-crono border-cyan">
+                <h3 class="text-cyan">La Fiesta</h3>
+                <p>13 de Junio · 21:00 hs</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+Eventos+Danna" target="_blank" class="btn-mapa-rect border-cyan">VER UBICACIÓN</a>
+            </div>
+        </section>
+
+        <section class="section-pad">
+            <h2 class="bellaboo text-cyan-neon">Dress code</h2>
+            <div class="spacer-v-mini"></div>
+            <div class="card-dress border-white">
+                <h3 class="dress-title">Tenida Elegante</h3>
+                <p class="dress-desc">Favor evitar los colores: <span class="text-fuchsia">blanco, gris, dorado, beige o fucsia.</span></p>
+            </div>
+        </section>
+
+        <section class="section-pad">
+            <h2 class="bellaboo text-lila-neon">Sugerencia de regalo</h2>
+            <div class="spacer-v-mini"></div>
+            <p class="text-white-small">Tu presencia es lo más importante para mí ♾️❤️‍🩹</p>
+            <p class="text-white-small">pero si deseas tener un detalle, puedes considerar:</p>
+            <div class="card-regalo border-lila">
+                <p class="text-cyan-bold">Joyerías · Perfumes · Maquillaje · Skincare · Prendas · Calzado · Accesorios</p>
+            </div>
+            <div class="spacer-medium"></div>
+            <p class="text-white-small">O también te dejo esta opción:</p>
+            <div class="card-regalo border-lila">
+                <p class="datos-bancarios">
+                    <b>Alias:</b> DANNA.XV.BANCO<br>
+                    <b>Banco:</b> ITAÚ<br>
+                    <b>Titular:</b> Danna Prette
+                </p>
+            </div>
+        </section>
+
+        <section class="section-pad">
+            <div class="card-confirmacion border-cyan">
+                <h2 class="bellaboo text-cyan-neon-small">¿Podrás asistir?</h2>
+                <div class="spacer-v-confirm"></div>
+                <p class="rsvp-text">Favor confirmar asistencia antes del 25 de mayo</p>
+                <div class="spacer-v-confirm"></div>
+                <a href="https://wa.link/t69z8g" class="btn-whatsapp-pro" target="_blank" rel="noopener noreferrer">CONFIRMAR ASISTENCIA</a>
+            </div>
+        </section>
+
+        <section class="section-pad pb-100">
+            <h2 class="bellaboo text-white-neon">faltan...</h2>
+            <div class="spacer-v-mini"></div>
+            <div class="countdown-grid">
+                <div class="c-box border-white"><span id="days" class="text-lila">00</span><small>DÍAS</small></div>
+                <div class="c-box border-white"><span id="hours" class="text-cyan">00</span><small>HORAS</small></div>
+                <div class="c-box border-white"><span id="minutes" class="text-fuchsia">00</span><small>MINUTOS</small></div>
+                <div class="c-box border-white"><span id="seconds" class="text-verde">00</span><small>SEGUNDOS</small></div>
+            </div>
+            <h1 class="bellaboo-firma text-fuchsia-neon-grande">Danna Prette</h1>
+        </section>
+        <footer>✦ GHISA DIGITAL ✦</footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

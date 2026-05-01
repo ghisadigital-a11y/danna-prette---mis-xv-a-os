@@ -1,0 +1,97 @@
+@font-face { font-family: 'Bellaboo'; src: url('bellaboo-1.ttf'); }
+
+:root {
+    --fuchsia: #FF00AD;
+    --cyan: #17E1BC;
+    --lila: #8400C0;
+    --verde: #7FFFD4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; color: #fff; font-family: 'Montserrat', sans-serif; text-align: center; overflow-x: hidden; }
+
+/* SOBRE FULL CLICK */
+#contenedor-principal { position: fixed; inset: 0; z-index: 5000; background: #000; transition: opacity 0.8s; cursor: pointer; }
+#videoSobre { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+#capa-boton { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); z-index: 5001; pointer-events: none; }
+.boton-neon-inicio { border: 2px solid var(--fuchsia); padding: 15px 35px; border-radius: 50px; box-shadow: 0 0 15px var(--fuchsia); font-weight: bold; background: rgba(0,0,0,0.6); color: #fff; }
+
+/* PORTADA */
+.video-deco-container { width: 100vw; height: 100vh; position: relative; }
+#videoDeco { width: 100%; height: 100%; object-fit: cover; }
+.scroll-indicator-wrap { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); }
+.desliza-tag { color: var(--cyan); font-size: 11px; letter-spacing: 5px; }
+.arrow-neon { width: 1px; height: 40px; background: var(--cyan); margin: 8px auto; animation: slideLine 2s infinite; }
+@keyframes slideLine { 0% { transform: scaleY(0); opacity: 0; } 50% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(0); opacity: 0; } }
+
+/* TEXTOS NEON */
+.bellaboo { font-family: 'Bellaboo', sans-serif; text-transform: none; font-size: 38px; }
+.text-fuchsia-neon { color: var(--fuchsia); text-shadow: 0 0 10px var(--fuchsia); }
+.text-cyan-neon { color: #00D1FF; text-shadow: 0 0 15px #00D1FF; }
+.text-white-neon { color: #fff; text-shadow: 0 0 10px #fff; }
+.text-lila-neon { color: var(--lila); text-shadow: 0 0 10px var(--lila); }
+
+/* CARDS */
+.section-pad { padding: 80px 20px; position: relative; }
+.card-crono, .card-regalo, .card-dress, .card-confirmacion { 
+    background: rgba(255,255,255,0.04); padding: 35px 20px; border-radius: 25px; 
+    max-width: 350px; margin: 20px auto; border: 1.5px solid; 
+}
+.border-fuchsia { border-color: var(--fuchsia); }
+.border-cyan { border-color: var(--cyan); }
+.border-lila { border-color: var(--lila); }
+.border-white { border-color: rgba(255,255,255,0.2); }
+
+/* BOTONES RECTANGULARES (STILO RECUPERADO) */
+.btn-std-rect {
+    display: block; width: 280px; padding: 18px; margin: 15px auto;
+    border-radius: 12px; /* Rectangular pero suavizado */
+    text-decoration: none; font-weight: 700; font-size: 13px;
+    letter-spacing: 1px; transition: 0.3s;
+}
+.btn-std-rect.fuchsia { background: var(--fuchsia); color: white; box-shadow: 0 0 15px var(--fuchsia); }
+.btn-std-rect.cyan { border: 2px solid var(--cyan); color: var(--cyan); }
+
+.btn-mapa-rect {
+    display: inline-block; margin-top: 15px; padding: 12px 30px;
+    border-radius: 10px; border: 1.5px solid; color: #fff;
+    text-decoration: none; font-size: 11px; font-weight: bold; letter-spacing: 1px;
+}
+
+/* RASCADO */
+.flex-row { display: flex; justify-content: center; gap: 10px; margin: 30px 0; position: relative; z-index: 10; }
+.scratch-wrap { position: relative; width: 95px; height: 95px; }
+canvas { position: absolute; inset: 0; z-index: 100; border-radius: 50%; cursor: crosshair; touch-action: none; }
+.inner-label { 
+    width: 95px; height: 95px; display: flex; align-items: center; justify-content: center; 
+    background: black; border-radius: 50%; box-shadow: 0 0 25px var(--fuchsia), inset 0 0 15px rgba(255,0,150,0.3);
+    color: var(--fuchsia); text-shadow: 0 0 10px var(--fuchsia); font-weight: bold; font-family: 'Bellaboo';
+}
+
+/* CONFIRMACIÓN */
+.text-cyan-neon-small { color: #17E1BC; text-shadow: 0 0 10px #17E1BC; font-family: 'Bellaboo'; font-size: 32px; }
+.spacer-v-confirm { height: 25px; }
+.rsvp-text { font-size: 15px; line-height: 1.5; color: #fff; }
+.btn-whatsapp-pro { background: var(--fuchsia); padding: 18px; border-radius: 50px; color: white; display: block; font-weight: bold; text-decoration: none; box-shadow: 0 0 20px var(--fuchsia); }
+
+/* CONTADOR IMAGEN (BORDES BLANCOS, NÚMEROS COLORIDOS) */
+.countdown-grid { display: flex; justify-content: center; gap: 8px; margin-top: 25px; }
+.c-box { border: 1.5px solid #fff; padding: 15px 10px; border-radius: 15px; width: 85px; background: rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center; }
+.c-box span { font-size: 28px; font-weight: bold; }
+.c-box small { font-size: 8px; margin-top: 5px; letter-spacing: 1px; color: #fff; }
+
+.text-lila { color: var(--lila); text-shadow: 0 0 10px var(--lila); }
+.text-cyan { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
+.text-fuchsia { color: var(--fuchsia); text-shadow: 0 0 10px var(--fuchsia); }
+.text-verde { color: var(--verde); text-shadow: 0 0 10px var(--verde); }
+
+/* EXPLOSIONES LOVABLE */
+#fireworks-container { position: fixed; inset: 0; z-index: 50; pointer-events: none !important; }
+.firework-particle { position: absolute; width: 6px; height: 6px; border-radius: 50%; animation: firework-out 1.5s forwards ease-out; }
+.firework-flash { position: absolute; width: 20px; height: 20px; background: white; border-radius: 50%; filter: blur(10px); animation: flash-animation 0.6s forwards; }
+@keyframes firework-out { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; } }
+@keyframes flash-animation { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(5); opacity: 0; } }
+
+.text-fuchsia-neon-grande { color: #FF00AD; text-shadow: 0 0 20px #FF00AD; font-size: 55px; font-family: 'Bellaboo'; margin-top: 40px; display: block; }
+.oculto { display: none; }
+footer { padding: 40px 20px; font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.3); }
