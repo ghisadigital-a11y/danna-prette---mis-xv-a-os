@@ -48,6 +48,75 @@ body {
 .playfair { font-family: 'Playfair Display', serif !important; font-style: italic;}
 .bold { font-weight: 700; }
 
+/* --- MEGA PAQUETE DE ANIMACIONES CONTINUAS (MÁS MOVIMIENTO) --- */
+
+/* 1. Respiración de Bordes Neón */
+@keyframes borderBreathingFuchsia {
+    0% { box-shadow: 0 0 35px var(--fuchsia), inset 0 0 20px rgba(255,0,173,0.5); }
+    50% { box-shadow: 0 0 55px var(--fuchsia), inset 0 0 35px rgba(255,0,173,0.9); }
+    100% { box-shadow: 0 0 35px var(--fuchsia), inset 0 0 20px rgba(255,0,173,0.5); }
+}
+@keyframes borderBreathingCyan {
+    0% { box-shadow: 0 0 35px var(--cyan), inset 0 0 20px rgba(23,225,188,0.5); }
+    50% { box-shadow: 0 0 55px var(--cyan), inset 0 0 35px rgba(23,225,188,0.9); }
+    100% { box-shadow: 0 0 35px var(--cyan), inset 0 0 20px rgba(23,225,188,0.5); }
+}
+@keyframes borderBreathingLila {
+    0% { box-shadow: 0 0 35px var(--lila), inset 0 0 20px rgba(132,0,192,0.5); }
+    50% { box-shadow: 0 0 55px var(--lila), inset 0 0 35px rgba(132,0,192,0.9); }
+    100% { box-shadow: 0 0 35px var(--lila), inset 0 0 20px rgba(132,0,192,0.5); }
+}
+@keyframes borderBreathingWhite {
+    0% { box-shadow: 0 0 20px rgba(255,255,255,0.3), inset 0 0 10px rgba(255,255,255,0.2); }
+    50% { box-shadow: 0 0 40px rgba(255,255,255,0.7), inset 0 0 20px rgba(255,255,255,0.5); }
+    100% { box-shadow: 0 0 20px rgba(255,255,255,0.3), inset 0 0 10px rgba(255,255,255,0.2); }
+}
+
+/* 2. Levitación Continua de Cajas (Efecto Gravedad Cero) */
+@keyframes levitateSlow {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+@keyframes levitateSlowReverse {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(8px); }
+    100% { transform: translateY(0px); }
+}
+.levitate-card { animation: levitateSlow 6s ease-in-out infinite; }
+.levitate-card-reverse { animation: levitateSlowReverse 7s ease-in-out infinite; }
+
+.levitate-box-1 { animation: levitateSlow 5s ease-in-out infinite; }
+.levitate-box-2 { animation: levitateSlowReverse 6s ease-in-out infinite; }
+.levitate-box-3 { animation: levitateSlow 7s ease-in-out infinite; }
+.levitate-box-4 { animation: levitateSlowReverse 5.5s ease-in-out infinite; }
+
+/* 3. Latido (Pulse) para Botones e Íconos */
+@keyframes ctaBtnPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+@keyframes iconPulseBeat {
+    0% { transform: scale(1) translateY(0); }
+    30% { transform: scale(1.08) translateY(-5px); }
+    50% { transform: scale(1) translateY(0); }
+    70% { transform: scale(1.04) translateY(-2px); }
+    100% { transform: scale(1) translateY(0); }
+}
+.pulse-icon { animation: iconPulseBeat 5s ease-in-out infinite !important; }
+
+/* 4. Brillo Dinámico en Títulos */
+@keyframes titleContinuousGlow {
+    0% { text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.6); }
+    50% { text-shadow: 0 0 15px #fff, 0 0 35px var(--cyan), 0 0 50px var(--cyan); }
+    100% { text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.6); }
+}
+@keyframes neonPulseFuchsia {
+    0% { text-shadow: 0 0 15px rgba(255, 0, 173, 0.9), 0 0 30px var(--fuchsia); }
+    100% { text-shadow: 0 0 30px #fff, 0 0 60px var(--fuchsia), 0 0 80px var(--fuchsia); }
+}
+
 /* TÍTULOS PRINCIPALES CON MORESIGN + NEÓN */
 .moresign { 
     font-family: 'Moresign', cursive !important; 
@@ -62,8 +131,16 @@ body {
     color: #fff; text-shadow: 0 0 10px rgba(255, 0, 173, 0.8), 0 0 20px var(--fuchsia);
 }
 
-/* EFECTOS NEÓN */
-.text-white-neon { color: #fff !important; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.6); }
+/* EFECTOS NEÓN Y COLORES ASIGNADOS */
+.text-white-neon { 
+    color: #fff !important; 
+    text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.6);
+    animation: titleContinuousGlow 4s infinite ease-in-out; 
+}
+.text-fuchsia { color: var(--fuchsia) !important; }
+.text-cyan { color: var(--cyan) !important; }
+.neon-cyan-text { text-shadow: 0 0 8px rgba(23, 225, 188, 0.6); }
+
 .neon-fuchsia { filter: drop-shadow(0 0 15px var(--fuchsia)); }
 .neon-cyan { filter: drop-shadow(0 0 15px var(--cyan)); }
 .neon-white { filter: drop-shadow(0 0 10px #fff); }
@@ -84,19 +161,24 @@ body {
 .reveal { opacity: 0; transform: translateY(60px); transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* ANIMACIONES FLOTANTES */
+/* ANIMACIONES FLOTANTES BASE */
 @keyframes floatAnim {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-12px); }
     100% { transform: translateY(0px); }
 }
 @keyframes floatElegant {
     0% { transform: translateY(0px) rotate(-1deg); }
-    50% { transform: translateY(-12px) rotate(1deg); }
+    50% { transform: translateY(-15px) rotate(1.5deg); }
     100% { transform: translateY(0px) rotate(-1deg); }
 }
 .floating-icon { animation: floatAnim 4s ease-in-out infinite; }
-.standing-deco { animation: floatElegant 8s ease-in-out infinite alternate; }
+.standing-deco { animation: floatElegant 7s ease-in-out infinite alternate; }
+
+/* Movimiento extra para fondos gigantes */
+.float-extra { animation: floatElegant 8s ease-in-out infinite alternate; }
+.float-extra-reverse { animation: floatElegant 9s ease-in-out infinite alternate-reverse; }
+
 .anim-scale { transition: transform 0.3s ease; }
 .anim-scale:hover { transform: scale(1.02); }
 
@@ -126,26 +208,25 @@ body {
     pointer-events: none;
     mix-blend-mode: screen;
     width: 65vw; 
-    max-width: 480px; /* Más grandes */
+    max-width: 480px; 
     opacity: 0.9;
 }
-.zig-top-right { top: -20px; right: -15vw; animation: floatAnim 7s infinite reverse; }
-.zig-mid-left { top: 20%; left: -15vw; animation: floatAnim 8s infinite; }
-.zig-mid-right { top: 35%; right: -15vw; animation: floatAnim 6s infinite reverse; }
-.zig-bottom-left { bottom: 15%; left: -15vw; animation: floatAnim 7s infinite reverse; }
+.zig-top-right { top: -20px; right: -15vw; }
+.zig-mid-left { top: 20%; left: -15vw; }
+.zig-mid-right { top: 35%; right: -15vw; }
+.zig-bottom-left { bottom: 15%; left: -15vw; }
 
 /* --- GRAFFITI CENTRADO Y GIGANTE (Deco 5) --- */
 .graffiti-spaced {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 90vw; /* GIGANTE */
+    width: 90vw; 
     max-width: 550px;
-    z-index: 1; /* Atrás del vidrio */
+    z-index: 1; 
     mix-blend-mode: screen;
     opacity: 0.85;
     transform: translate(-50%, -50%) rotate(-5deg);
-    animation: floatElegant 8s infinite alternate;
 }
 
 /* --- HÉROES DEBAJO DE LAS SECCIONES (Deco 1, 2, 3) --- */
@@ -159,14 +240,13 @@ body {
 }
 .hero-img {
     mix-blend-mode: screen;
-    width: 380px; /* HÉROES AÚN MÁS GIGANTES */
+    width: 380px; 
     max-width: 90vw;
-    animation: floatElegant 8s ease-in-out infinite;
     filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));
 }
 
 /* =========================================================
-   RECUADROS DARK GLASS Y BORDES ULTRA VIBRANTES
+   RECUADROS DARK GLASS Y BORDES ULTRA VIBRANTES Y DINÁMICOS
 ========================================================= */
 .dark-glass {
    background: rgba(10, 10, 10, 0.7); 
@@ -181,22 +261,22 @@ body {
    z-index: 5; 
 }
 
-/* Bordes Ultra Vibrantes */
+/* Bordes Ultra Vibrantes con Respiración Continua */
 .border-fuchsia { 
     border: 2px solid var(--fuchsia); 
-    box-shadow: 0 0 35px var(--fuchsia), inset 0 0 20px rgba(255,0,173,0.5); 
+    animation: borderBreathingFuchsia 4s infinite ease-in-out, levitateSlow 6s ease-in-out infinite;
 }
 .border-cyan { 
     border: 2px solid var(--cyan); 
-    box-shadow: 0 0 35px var(--cyan), inset 0 0 20px rgba(23,225,188,0.5); 
+    animation: borderBreathingCyan 4s infinite ease-in-out, levitateSlowReverse 7s ease-in-out infinite;
 }
 .border-lila { 
     border: 2px solid var(--lila); 
-    box-shadow: 0 0 35px var(--lila), inset 0 0 20px rgba(132,0,192,0.5); 
+    animation: borderBreathingLila 4s infinite ease-in-out, levitateSlow 6.5s ease-in-out infinite;
 }
 .border-white { 
     border: 2px solid rgba(255,255,255,0.6); 
-    box-shadow: 0 0 20px rgba(255,255,255,0.3), inset 0 0 10px rgba(255,255,255,0.2); 
+    animation: borderBreathingWhite 4s infinite ease-in-out, levitateSlow 6s ease-in-out infinite;
 }
 
 /* CAPAS Y ORDEN */
@@ -210,9 +290,12 @@ body {
 .icon-rsvp-fix { margin-bottom: 20px; width: 100px; height: 100px;} 
 .spacer-v-mini { height: 15px; }
 
-/* BOTONES RECTANGULARES */
+/* BOTONES RECTANGULARES DINÁMICOS */
 .btn-std-rect { display: block; width: 280px; padding: 18px; margin: 15px auto; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 1px; transition: 0.3s; }
-.btn-std-rect.fuchsia-bg-btn { background: var(--fuchsia); color: #fff !important; box-shadow: 0 0 20px var(--fuchsia); border: none; }
+.btn-std-rect.fuchsia-bg-btn { 
+    background: var(--fuchsia); color: #fff !important; box-shadow: 0 0 20px var(--fuchsia); border: none; 
+    animation: ctaBtnPulse 3s infinite ease-in-out;
+}
 .btn-std-rect.fuchsia-bg-btn:hover { background: rgba(255,0,173,0.8); box-shadow: 0 0 30px var(--fuchsia); }
 
 .btn-mapa-rect-solido { display: inline-block; margin-top: 15px; padding: 12px 30px; border-radius: 10px; border: none; color: #fff !important; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 1px; transition: 0.3s; }
@@ -240,7 +323,10 @@ canvas { position: absolute; inset: 0; z-index: 100; border-radius: 50%; cursor:
 .card-confirmacion .card-confirmacion-h2.RSVP-Title-Fix { font-size: 38px !important; line-height: 1.2; margin-bottom: 20px; margin-top: 0; }
 .card-RSVP-confirmacion { margin-bottom: 40px; }
 .rsvp-text { font-size: 15px; line-height: 1.5; color: #fff; margin-bottom: 20px;}
-.btn-whatsapp-pro { background: var(--fuchsia); padding: 18px; border-radius: 50px; color: white; display: block; font-weight: 600; text-decoration: none; box-shadow: 0 0 20px var(--fuchsia); margin-top: 15px; }
+.btn-whatsapp-pro { 
+    background: var(--fuchsia); padding: 18px; border-radius: 50px; color: white; display: block; font-weight: 600; text-decoration: none; box-shadow: 0 0 20px var(--fuchsia); margin-top: 15px; 
+    animation: ctaBtnPulse 2.5s infinite ease-in-out;
+}
 
 /* CONTADOR */
 .pb-Contador { padding-bottom: 15px; }
@@ -255,6 +341,7 @@ canvas { position: absolute; inset: 0; z-index: 100; border-radius: 50%; cursor:
     backdrop-filter: blur(10px);
     display: flex; flex-direction: column; align-items: center; 
     position: relative; z-index: 5;
+    animation: borderBreathingWhite 5s infinite ease-in-out;
 }
 .countdown-poppins { font-size: 28px; font-weight: 700; }
 .c-box small { font-size: 8px; margin-top: 5px; letter-spacing: 1px; color: #fff; }
@@ -273,9 +360,9 @@ canvas { position: absolute; inset: 0; z-index: 100; border-radius: 50%; cursor:
     position: relative; z-index: 5;
 }
 .moresign-title-final { 
-    font-family: 'Moresign', cursive !important; /* CORREGIDO AQUÍ */
+    font-family: 'Moresign', cursive !important; 
     color: #fff !important; 
-    font-size: 85px !important; /* GIGANTE */
+    font-size: 85px !important; 
     font-weight: normal;
     text-shadow: 0 0 15px rgba(255, 0, 173, 0.9), 0 0 30px var(--fuchsia); 
     line-height: 1;
