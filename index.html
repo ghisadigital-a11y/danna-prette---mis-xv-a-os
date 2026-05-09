@@ -1,134 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Danna Prette · Mis XV</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <title>Danna Prette · Mis XV</title>
+   <link rel="stylesheet" href="style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- APERTURA (Toca cualquier parte para abrir) -->
-    <div id="contenedor-principal" onclick="activarInvitacion()">
-        <video id="videoSobre" playsinline muted preload="auto">
-            <source src="video.mp4" type="video/mp4">
-        </video>
-        <div id="capa-boton">
-            <div class="boton-neon-inicio">TOCA PARA ABRIR</div>
-        </div>
-    </div>
+   <div class="starfield-overlay"></div>
 
-    <div id="seccion-final" class="oculto">
-        
-        <section class="video-deco-container">
-            <video id="videoDeco" playsinline muted loop autoplay>
-                <source src="video_deco.mp4" type="video/mp4">
-            </video>
-            <div class="scroll-indicator-wrap">
-                <span class="desliza-tag">DESLIZA</span>
-                <div class="arrow-neon"></div>
-            </div>
-        </section>
+   <audio id="musicaInvitacion" preload="auto" loop>
+      <source src="musica.mp3" type="audio/mpeg">
+   </audio>
 
-        <section class="section-pad">
-            <p class="frase-emotiva">Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más quiero los hace inolvidables.</p>
-            <div class="spacer-v"></div>
-            <h2 class="bellaboo text-fuchsia-neon">Te espero para celebrar mis 15 años</h2>
-        </section>
+   <div id="music-toggle" class="music-on" onclick="toggleMusic()">
+       <i class="fa-solid fa-music"></i>
+   </div>
 
-        <section class="section-pad relative">
-            <h2 class="bellaboo text-cyan-neon">Save the date</h2>
-            <div class="save-the-date-card">
-                <div id="fireworks-container"></div> 
-                <div class="flex-row">
-                    <div class="scratch-wrap">
-                        <canvas id="c1" width="95" height="95"></canvas>
-                        <div class="inner-label">13</div>
-                    </div>
-                    <div class="scratch-wrap">
-                        <canvas id="c2" width="95" height="95"></canvas>
-                        <div class="inner-label">JUNIO</div>
-                    </div>
-                    <div class="scratch-wrap">
-                        <canvas id="c3" width="95" height="95"></canvas>
-                        <div class="inner-label">2026</div>
-                    </div>
-                </div>
-            </div>
-            <!-- BOTONES RECTANGULARES STD -->
-            <div class="botones-std">
-                <a href="https://drive.google.com/file/d/1zFx6J6QZdPNjwB9XtpDbCuxBxV37fkhF/view?usp=sharing" class="btn-std-rect fuchsia">DESCARGA EL SAVE THE DATE</a>
-            </div>
-        </section>
+   <div id="contenedor-principal" onclick="activarInvitacion()">
+       <video id="videoSobre" playsinline muted preload="auto">
+           <source src="video.mp4" type="video/mp4">
+       </video>
+       <div id="capa-boton">
+           <div class="boton-neon-inicio poppins" id="btn-toca-abrir">TOCA PARA ABRIR</div>
+       </div>
+   </div>
 
-        <section class="section-pad">
-            <h2 class="bellaboo text-white-neon">Cronograma</h2>
-            <div class="card-crono border-fuchsia">
-                <h3 class="text-fuchsia">Ceremonia Religiosa</h3>
-                <p>9 de Junio · 19:00 hs</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+San+Roque" target="_blank" class="btn-mapa-rect border-fuchsia">VER UBICACIÓN</a>
-            </div>
-            <div class="spacer-mini"></div>
-            <div class="card-crono border-cyan">
-                <h3 class="text-cyan">La Fiesta</h3>
-                <p>13 de Junio · 21:00 hs</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+Eventos+Danna" target="_blank" class="btn-mapa-rect border-cyan">VER UBICACIÓN</a>
-            </div>
-        </section>
+   <div id="seccion-final" class="oculto">
+      
+       <section class="video-deco-container">
+           <video id="videoDeco" playsinline muted loop autoplay>
+               <source src="video_deco.mp4" type="video/mp4">
+           </video>
+           <div class="scroll-indicator-wrap">
+               <span class="desliza-tag poppins">DESLIZA</span>
+               <div class="arrow-neon"></div>
+           </div>
+       </section>
 
-        <section class="section-pad">
-            <h2 class="bellaboo text-cyan-neon">Dress code</h2>
-            <div class="spacer-v-mini"></div>
-            <div class="card-dress border-white">
-                <h3 class="dress-title">Tenida Elegante</h3>
-                <p class="dress-desc">Favor evitar los colores: <span class="text-fuchsia">blanco, gris, dorado, beige o fucsia.</span></p>
-            </div>
-        </section>
+       <section class="section-pad relative reveal texture-bg-1">
+           
+           <img src="deco 7.png" class="deco-abs zig-top-right neon-lila" alt="flores neon">
 
-        <section class="section-pad">
-            <h2 class="bellaboo text-lila-neon">Sugerencia de regalo</h2>
-            <div class="spacer-v-mini"></div>
-            <p class="text-white-small">Tu presencia es lo más importante para mí ♾️❤️‍🩹</p>
-            <p class="text-white-small">pero si deseas tener un detalle, puedes considerar:</p>
-            <div class="card-regalo border-lila">
-                <p class="text-cyan-bold">Joyerías · Perfumes · Maquillaje · Skincare · Prendas · Calzado · Accesorios</p>
-            </div>
-            <div class="spacer-medium"></div>
-            <p class="text-white-small">O también te dejo esta opción:</p>
-            <div class="card-regalo border-lila">
-                <p class="datos-bancarios">
-                    <b>Alias:</b> DANNA.XV.BANCO<br>
-                    <b>Banco:</b> ITAÚ<br>
-                    <b>Titular:</b> Danna Prette
-                </p>
-            </div>
-        </section>
+           <div class="contenido-relativo bloque-separador pt-intro-text">
+               <div class="card-frase border-white anim-scale dark-glass">
+                   <p class="frase-emotiva poppins">Porque hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más quiero los hace inolvidables.</p>
+                   <div class="spacer-v-mini"></div>
+                   <h2 class="playfair text-white-neon te-espero-onda">Te espero para celebrar mis 15 años</h2>
+               </div>
+           </div>
 
-        <section class="section-pad">
-            <div class="card-confirmacion border-cyan">
-                <h2 class="bellaboo text-cyan-neon-small">¿Podrás asistir?</h2>
-                <div class="spacer-v-confirm"></div>
-                <p class="rsvp-text">Favor confirmar asistencia antes del 25 de mayo</p>
-                <div class="spacer-v-confirm"></div>
-                <a href="https://wa.link/t69z8g" class="btn-whatsapp-pro" target="_blank" rel="noopener noreferrer">CONFIRMAR ASISTENCIA</a>
-            </div>
-        </section>
+           <div class="contenido-relativo relative-rascado">
+               <h2 class="moresign text-white-neon titulo-ajustado">Save the date</h2>
+               <div class="save-the-date-card dark-glass border-fuchsia">
+                   <div class="flex-row">
+                       <div id="fireworks-container"></div>
+                       <div class="scratch-wrap">
+                           <canvas id="c1" width="95" height="95"></canvas>
+                           <div class="inner-label fecha-poppins label-oro-solid">13</div>
+                       </div>
+                       <div class="scratch-wrap">
+                           <canvas id="c2" width="95" height="95"></canvas>
+                           <div class="inner-label fecha-poppins label-oro-solid">JUNIO</div>
+                       </div>
+                       <div class="scratch-wrap">
+                           <canvas id="c3" width="95" height="95"></canvas>
+                           <div class="inner-label fecha-poppins label-oro-solid">2026</div>
+                       </div>
+                   </div>
+               </div>
+               
+               <div class="botones-std">
+                   <a href="#" class="btn-std-rect fuchsia-bg-btn poppins">DESCARGA EL SAVE THE DATE</a>
+               </div>
+           </div>
+       </section>
 
-        <section class="section-pad pb-100">
-            <h2 class="bellaboo text-white-neon">faltan...</h2>
-            <div class="spacer-v-mini"></div>
-            <div class="countdown-grid">
-                <div class="c-box border-white"><span id="days" class="text-lila">00</span><small>DÍAS</small></div>
-                <div class="c-box border-white"><span id="hours" class="text-cyan">00</span><small>HORAS</small></div>
-                <div class="c-box border-white"><span id="minutes" class="text-fuchsia">00</span><small>MINUTOS</small></div>
-                <div class="c-box border-white"><span id="seconds" class="text-verde">00</span><small>SEGUNDOS</small></div>
-            </div>
-            <h1 class="bellaboo-firma text-fuchsia-neon-grande">Danna Prette</h1>
-        </section>
-        <footer>✦ GHISA DIGITAL ✦</footer>
-    </div>
+       <section class="section-pad relative reveal texture-bg-1 pt-crono">
+           
+           <img src="deco 8.png" class="deco-abs zig-mid-left neon-cyan" alt="flores neon">
 
-    <script src="script.js"></script>
+           <div class="contenido-relativo">
+               <h2 class="moresign text-white-neon titulo-ajustado">Cronograma</h2>
+               
+               <div class="card-crono border-fuchsia anim-scale dark-glass">
+                   <img src="icono 1.png" class="card-icon floating-icon neon-fuchsia" alt="Iglesia">
+                   <h3 class="text-fuchsia playfair subtitulo-pro">Ceremonia Religiosa</h3>
+                   <p class="poppins text-crono">9 de Junio · 19:00 hs</p>
+                   <a href="#" target="_blank" class="btn-mapa-rect-solido fuchsia-bg-btn poppins">
+                      <i class="fa-solid fa-map-marker-alt"></i> VER UBICACIÓN
+                   </a>
+               </div>
+               
+               <div class="card-crono border-cyan anim-scale dark-glass mt-40">
+                   <img src="icono 2.png" class="card-icon floating-icon neon-cyan" alt="Fiesta">
+                   <h3 class="text-cyan playfair subtitulo-pro">La Fiesta</h3>
+                   <p class="poppins text-crono">13 de Junio · 21:00 hs</p>
+                   <a href="#" target="_blank" class="btn-mapa-rect-solido cyan-bg-btn poppins">
+                      <i class="fa-solid fa-map-marker-alt"></i> VER UBICACIÓN
+                   </a>
+               </div>
+           </div>
+
+           <div class="hero-deco-container">
+               <img src="deco 1.png" class="hero-img standing-deco" alt="decoración cronograma">
+           </div>
+       </section>
+
+       <section class="section-pad relative reveal texture-bg-1 pb-dress-adjust">
+           
+           <img src="deco 9.png" class="deco-abs zig-mid-right neon-fuchsia" alt="flores neon">
+
+           <div class="contenido-relativo Dress-Code-Adjust">
+               <h2 class="moresign text-white-neon titulo-ajustado">Dress code</h2>
+               <div class="card-dress border-white Dress-Code-Block-Card anim-scale dark-glass">
+                   <img src="icono 4.png" class="card-icon floating-icon neon-white Dress-Icon-Big" alt="Vestido">
+                   <h3 class="playfair subtitulo-pro text-white">Tenida Elegante</h3>
+                   <p class="poppins text-crono Dress-Text-Adjust">Favor evitar los colores:<br><span class="text-fuchsia poppins bold">blanco, gris, dorado, beige o fucsia.</span></p>
+               </div>
+           </div>
+
+           <div class="hero-deco-container">
+               <img src="deco 3.png" class="hero-img standing-deco" alt="decoración dress code">
+           </div>
+       </section>
+
+       <section class="section-pad relative reveal texture-bg-1 pt-regalo-pro">
+           
+           <img src="deco 5.png" class="graffiti-spaced" alt="graffiti mancha">
+
+           <div class="contenido-relativo Regalo-SOLO-Block">
+               <h2 class="moresign text-white-neon titulo-regalo-fix">Sugerencia de regalo</h2>
+               <p class="poppins text-white-gift">Tu presencia es lo más importante para mí ♾️❤️‍🩹</p>
+
+               <div class="card-regalo border-lila card-icon-fix bloque-regalo anim-scale dark-glass">
+                   <img src="icono 5.png" class="card-icon icon-gif-lila floating-icon neon-lila Gift-Icon-Adjust" alt="Percha">
+                   <p class="poppins text-crono">pero si deseas tener un detalle, puedes considerar:</p>
+                   <p class="poppins regalos-lista">Joyerías · Perfumes · Maquillaje · Skincare · Prendas · Calzado · Accesorios.</p>
+               </div>
+               
+               <div class="card-regalo border-lila card-icon-fix anim-scale dark-glass mt-40">
+                   <img src="icono 6.png" class="card-icon icon-gif-lila floating-icon neon-lila Gift-Icon-Adjust" alt="Billetes">
+                   <p class="poppins text-crono">O también te dejo esta opción:</p>
+                   <p class="poppins datos-bancarios text-white Bank-Text-Adjust">
+                       <b>Titular:</b> Daniel Prette<br>
+                       <b>Banco:</b> Continental<br>
+                       <b>Alias Celular:</b> 981 512 311
+                   </p>
+               </div>
+           </div>
+       </section>
+
+       <section class="section-pad relative reveal texture-bg-1 pb-firma-adjust pt-confirmacion-pro">
+           
+           <img src="deco 7.png" class="deco-abs zig-bottom-left neon-lila" alt="flores neon">
+
+           <div class="contenido-relativo bloque-separador pt-RSVP RSVP-Block-Adjust">
+               <div class="card-confirmacion border-cyan card-RSVP-confirmacion anim-scale dark-glass">
+                   <img src="icono 3.png" class="card-icon floating-icon neon-cyan icon-rsvp-fix" alt="Sobre">
+                   <h2 class="moresign text-white-neon card-confirmacion-h2 RSVP-Title-Fix">¿Podrás asistir?</h2>
+                   <p class="poppins rsvp-text">Favor confirmar asistencia antes del 25 de mayo</p>
+                   <a href="https://wa.link/t69z8g" class="btn-whatsapp-pro poppins" target="_blank">CONFIRMAR ASISTENCIA</a>
+               </div>
+           </div>
+
+           <div class="hero-deco-container">
+               <img src="deco 2.png" class="hero-img standing-deco" alt="decoración confirmacion">
+           </div>
+
+           <div class="contenido-relativo pb-Contador pt-Contador-pro mt-contador-pro">
+               <h2 class="moresign text-white-neon titulo-ajustado">faltan...</h2>
+               <div class="countdown-grid">
+                   <div class="c-box border-white dark-glass-contador"><span id="days" class="text-white countdown-poppins">00</span><small class="poppins">DÍAS</small></div>
+                   <div class="c-box border-white dark-glass-contador"><span id="hours" class="text-white countdown-poppins">00</span><small class="poppins">HORAS</small></div>
+                   <div class="c-box border-white dark-glass-contador"><span id="minutes" class="text-white countdown-poppins">00</span><small class="poppins">MINUTOS</small></div>
+                   <div class="c-box border-white dark-glass-contador"><span id="seconds" class="text-white countdown-poppins">00</span><small class="poppins">SEGUNDOS</small></div>
+               </div>
+           </div>
+       </section>
+
+       <section class="section-pad final-name-card reveal">
+           <div class="contenido-relativo">
+               <h1 class="moresign moresign-title-final text-white-neon">Danna Prette</h1>
+           </div>
+       </section>
+
+       <footer class="poppins">✦ GHISA DIGITAL ✦</footer>
+   </div>
+
+   <script src="script.js"></script>
 </body>
 </html>
